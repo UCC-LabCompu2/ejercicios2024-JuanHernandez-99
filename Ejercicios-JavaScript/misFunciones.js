@@ -5,7 +5,7 @@
  * @param {number} valor- El valor de los inputs de los metros ,yardas,pies y pulgadas'
  * @return
  */
-convertirUnidades = (id,valor) => {
+cambiarUnidades = (id,valor) => {
     let met, pul, pie, yar;
 
     if(valor.includes(",")){
@@ -23,21 +23,26 @@ convertirUnidades = (id,valor) => {
         pie = valor*3.28084;
         yar = valor*1.09361;
     }else if(id==="pulgada"){
-    document.Lasunidades.unid_metro.value = 0.0254 * valor;
-    document.Lasunidades.unid_pie.value = 0.083 * valor;
-    document.Lasunidades.unid_yarda.value = 0.027 * valor;
-
-} else if (id == "pie") {
-    document.Lasunidades.unid_metro.value = 0.3048 * valor;
-    document.Lasunidades.unid_pulgada.value = 12 * valor;
-    document.Lasunidades.unid_yarda.value = 0.33 * valor;
-} else if (id == "yarda") {
-    document.Lasunidades.unid_metro.value = 0.9144 * valor;
-    document.Lasunidades.unid_pulgada.value = 36 * valor;
-    document.Lasunidades.unid_pie.value = 3 * valor;
-
-}}
-
+        pul = valor;
+        met = valor*0.0254;
+        pie = valor*0.083;
+        yar = valor*0.027;
+    }else if(id==="pie"){
+        pie = valor;
+        met = valor*0.3048;
+        pul = valor*12 ;
+        yar = valor*0.33;
+    }else if(id==="yarda"){
+        yar = valor;
+        pul = valor*36;
+        met = valor*0.9144 ;
+        pie = valor*3;
+    }
+    document.lasUnidades.unid_metro.value = Math.round(met*100)/100;
+    document.lasUnidades.unid_pulgada.value = Math.round(pul*100)/100;
+    document.lasUnidades.unid_pie.value = Math.round(pie);
+    document.lasUnidades.unid_yarda.value = Math.round(yar);
+}
 function convertiGR(id)
 {
     var grad, rad;
