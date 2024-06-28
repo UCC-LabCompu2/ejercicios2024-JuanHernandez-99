@@ -1,0 +1,20 @@
+body{
+    text-align: center;
+    font-family: "Comic Sans MS";
+    background: linear-gradient(to right,blue, orange);
+}
+div{
+    border: 2px solid #feab5a;
+    margin: 10px;
+    padding: 5px 30px;
+    border-radius: 15px;
+    box-shadow: 10px 12px #feab5a;
+}
+#principal{
+    width: 50px;
+    float: left;
+    border-radius: 50%;
+}
+div.especial h3 {
+    font-family:"Roboto Light";
+    text-shadow: 10px 5px #555555;}
