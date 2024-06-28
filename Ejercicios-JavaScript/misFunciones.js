@@ -55,3 +55,10 @@ function convertiGR(id)
     document.lasUnidades.unid_yarda.value = Math.round(yar);
 
 }
+function mostrar_ocultar(valorMO){
+    if(valorMO=="val_mostrar"){
+        document.getElementById("divMO").style.display= 'block';
+    }else if (valorMO=="val_ocultar"){
+        document.getElementById("divMO").style.display= 'none';
+    }
+}
