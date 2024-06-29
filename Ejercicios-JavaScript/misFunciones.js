@@ -259,8 +259,8 @@ function dibujarImagen(posX,posY) {
     }
 
 }
-x=0;
-dx=2;
+var x=0;
+var dx=2;
 function animarAuto(){
     var canvas=document.getElementById("myCanvas");
     var ctx=canvas.getContext("2d");
@@ -281,4 +281,38 @@ function animarAuto(){
         x=0;
     }
     x+=dx;
+}
+
+
+var x=0;
+var dx=2;
+let animarAuto = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+    }
+
+    if(x>canvas.width){
+        x=0;
+    }
+    x+=dx;
+}
+
+var intervalId;
+let detenerAuto = () => {
+    console.log("Se detuvo el auto")
+    clearInterval(intervalId); // Detener la animación
+}
+
+
+let comenzarAnimacion = () => {
+    console.log("Se llamo a comenzar animacion")
+    intervalId = setInterval(animarAuto, 10);
+    setTimeout(detenerAuto, 6000);
 }
