@@ -186,62 +186,61 @@ function limpiarCanvas(){
     canvas.width=canvas.width;
 
 }
-function dibujarCuadriculado(){
-    var canvas= document.getElementById("myCanvas");
-    var ctx= canvas.getContext("2d");
+let dibujarCuadriculado = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.font="10pt Verdana";
+    ctx.fillStyle = "blue";
 
+    console.log("Se comenzara a dibujar!!!");
+    const xMax = canvas.width;
+    const yMax = canvas.height;
 
+    let paso = 20;
+    let ejeX=-15;
+    let ejeY=-25;
+    let despl = 2;
 
-    var alturaMax=canvas.height;
-    var anchoMax=canvas.width;
+    //Dibujar Líneas Horizontales
 
-    //Dibujar lineas horizontales
-    ctx.beginPath();
-    for(var i=0;i<alturaMax;){
-
-        ctx.moveTo(0,i);
-
-        ctx.lineTo(anchoMax,i);
-        ctx.strokeStyle= "#3e67d9";
+    for(let i=0;i<yMax;i+=paso){
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(xMax, i);
+        ctx.strokeStyle = "#a19797"
         ctx.stroke();
-        i=i+20;
+        ctx.fillText(ejeX, xMax/2+despl, i+4);
+        ejeX +=1;
+        ctx.closePath();
     }
-    ctx.closePath()
 
-    //Dibujar lineas verticales
-    ctx.beginPath();
-    for(var i=0;i<anchoMax;){
-
-        ctx.moveTo(i,0);
-
-        ctx.lineTo(i,alturaMax);
-        ctx.strokeStyle= "#3e67d9";
+    //Dibujar Líneas Verticales
+    for(let i=0;i<xMax;i+=paso){
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i, yMax);
+        ctx.strokeStyle = "#1b73f8"
+        ctx.fillText(ejeY, i, yMax/2 - 6);
+        ejeY +=1;
         ctx.stroke();
-        i=i+20;
+        ctx.closePath();
     }
-    ctx.closePath()
 
-
-//Eje X
-ctx.beginPath();
-
-ctx.moveTo(0,alturaMax/2);
-ctx.lineTo(anchoMax,alturaMax/2);
-ctx.strokeStyle= "#d91c00";
-ctx.stroke();
-
-ctx.closePath()
-
-//Eje Y
-
+    //Eje X
     ctx.beginPath();
-
-    ctx.moveTo(anchoMax/2,0);
-    ctx.lineTo(anchoMax/2,alturaMax);
-    ctx.strokeStyle= "#d91c00";
+    ctx.moveTo(0, yMax/2);
+    ctx.lineTo(xMax, yMax/2);
+    ctx.strokeStyle = "#830303"
     ctx.stroke();
+    ctx.closePath();
 
-    ctx.closePath()
+    //Eje Y
+    ctx.beginPath();
+    ctx.moveTo(xMax/2, 0);
+    ctx.lineTo(xMax/2, yMax);
+    ctx.strokeStyle = "#830303"
+    ctx.stroke();
+    ctx.closePath();
 
 
 
