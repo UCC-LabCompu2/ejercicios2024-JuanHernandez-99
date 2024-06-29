@@ -144,3 +144,17 @@ function guardarLocalStorage(){
 
     }
 }
+
+function dibujarcircuad(){
+    var canvas=document.getElementById("myCanvas");
+    var ctx= canvas.getContext("2d");
+    var ymax=canvas.height;
+    var xmax=canvas.width;
+    var margen=5;
+    ctx.fillStyle="#c75415";
+    ctx.fillRect(0+margen, ymax-0-margen ,40,40);
+
+    ctx.arc(xmax/2,ymax/2,20,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle="#333899";
+}
