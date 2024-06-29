@@ -341,3 +341,34 @@ let animarAuto = () => {
 let animarNuevo = () => {
     requestAnimationFrame(animarAuto);
 }
+
+var x=0;
+var dx=2;
+var animationId;
+let animarAuto = () => {
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const img = new Image();
+    img.src = "images/auto.png";
+
+    img.onload = function (){
+        canvas.width = canvas.width;
+        ctx.drawImage(img, x, 100);
+        animationId = requestAnimationFrame(animarAuto);
+    }
+
+    if(x>canvas.width){
+        x=0;
+    }
+    x+=dx;
+}
+
+let animarNuevo = () => {
+    setTimeout(cancelarAnimacion, 6000);
+    requestAnimationFrame(animarAuto);
+}
+
+let cancelarAnimacion = () => {
+    cancelAnimationFrame(animationId); // Cancelar la animación utilizando el ID almacenado
+};
