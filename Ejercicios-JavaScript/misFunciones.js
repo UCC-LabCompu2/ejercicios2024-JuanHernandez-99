@@ -68,12 +68,12 @@ function mostrar_ocultar(valorMO){
     }
 }
 
-function calcularsuma(){
-var num1, num2;
-num1=Number(document.getElementsByName('sum_num1')[0].value);
-num2=document.getElementsByName('sum_num2')[0].value;
-document.getElementsByName("sum_total")[0].innerHTML= num1 +Number(num2);
-
+function calcularsuma() {
+    var num1, num2;
+    num1 = Number(document.getElementsByName('sum_num1')[0].value);
+    num2 = document.getElementsByName('sum_num2')[0].value;
+    document.getElementsByName("sum_total")[0].innerHTML = num1 + Number(num2);
+}
     function calcularresta(){
 
         var num1,num2;
@@ -105,7 +105,7 @@ document.getElementsByName("sum_total")[0].innerHTML= num1 +Number(num2);
     }
 
 
-}
+
 function cargarWeb(){
     var cant, unidad,urlComp;
 
